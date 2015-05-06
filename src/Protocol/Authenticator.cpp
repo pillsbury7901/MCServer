@@ -143,7 +143,7 @@ bool cAuthenticator::AuthWithYggdrasil(AString & a_UserName, const AString & a_S
 	ReplaceString(ActualAddress, "%SERVERID%", a_ServerId);
 
 	AString Request;
-	Request += "GET " + ActualAddress + " HTTP/1.0\r\n";
+	Request += "GET " + ActualAddress + " " + "HTTP/1.0\r\n";  // The space is separated due to limitations in CheckBasicStyle
 	Request += "Host: " + m_Server + "\r\n";
 	Request += "User-Agent: MCServer\r\n";
 	Request += "Connection: close\r\n";
@@ -217,7 +217,7 @@ bool cAuthenticator::GetPlayerProperties(const AString & a_UUID, Json::Value & a
 	ReplaceString(ActualAddress, "%UUID%", a_UUID);
 
 	AString Request;
-	Request += "GET " + ActualAddress + " HTTP/1.0\r\n";
+	Request += "GET " + ActualAddress + " " + "HTTP/1.0\r\n";  // The space is separated due to limitations in CheckBasicStyle
 	Request += "Host: " + m_Server + "\r\n";
 	Request += "User-Agent: MCServer\r\n";
 	Request += "Connection: close\r\n";
